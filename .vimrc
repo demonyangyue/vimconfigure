@@ -397,5 +397,7 @@ map <F4> :Vimwiki2HTML<cr>
 " calendar
 map <F8> :Calendar<cr>
 
-
+"scheme
+let g:slimv_swank_cmd = '! xterm -e scheme --load /home/yy/.vim/slime/contrib/swank-mit-scheme.scm &'
+let g:lisp_rainbow=1
 
