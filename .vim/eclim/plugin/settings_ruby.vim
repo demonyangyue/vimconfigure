@@ -1,10 +1,8 @@
 " Author:  Eric Van Dewoestine
 "
-" Description: {{{
+" License: {{{
 "
-" License:
-"
-" Copyright (C) 2005 - 2012  Eric Van Dewoestine
+" Copyright (C) 2005 - 2014  Eric Van Dewoestine
 "
 " This program is free software: you can redistribute it and/or modify
 " it under the terms of the GNU General Public License as published by
@@ -21,19 +19,21 @@
 "
 " }}}
 
-" load any xml related functionality
-runtime! ftplugin/xml.vim
-runtime! indent/xml.vim
+" Global Varables {{{
+  call eclim#AddVimSetting(
+    \ 'Lang/Ruby', 'g:EclimRubySearchSingleResult', g:EclimDefaultFileOpenAction,
+    \ 'Sets the command to use when opening a single result from a ruby search.')
 
-" Command Declarations {{{
-if !exists(":MavenRepo")
-  command -nargs=0 -buffer
-    \ MavenRepo :call eclim#java#maven#SetClasspathVariable('Maven', 'MAVEN_REPO')
-endif
-if !exists(":MavenDependencySearch")
-  command -nargs=1 -buffer MavenDependencySearch
-    \ :call eclim#java#maven#Search('<args>', 'maven')
-endif
+  call eclim#AddVimSetting(
+    \ 'Lang/Ruby', 'g:EclimRubyValidate', 1,
+    \ 'Sets whether or not to validate ruby files on save.',
+    \ '\(0\|1\)')
+
+  call eclim#AddVimSetting(
+    \ 'Lang/Ruby', 'g:EclimRubySyntasticEnabled', 0,
+    \ "Only enable this if you want both eclim and syntastic to validate your ruby files.\n" .
+    \ "If you want to use syntastic instead of eclim, simply disable RubyValidate.",
+    \ '\(0\|1\)')
 " }}}
 
 " vim:ft=vim:fdm=marker

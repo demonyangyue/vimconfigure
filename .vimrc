@@ -1,12 +1,12 @@
 
 "设置菜单语言
-set langmenu=zh_CN.UTF-8 
+" set langmenu=zh_CN.UTF-8 
 "导入删除菜单脚本，删除乱码的菜单
 source $VIMRUNTIME/delmenu.vim 
 "导入正常的菜单脚本
 source $VIMRUNTIME/menu.vim 
 "设置提示信息语言
-language messages zh_CN.utf-8 
+"language messages zh_CN.utf-8 
 " 设定默认解码
 set fenc=utf-8
 set fencs=utf-8,usc-bom,euc-jp,gb18030,gbk,gb2312,cp936
@@ -130,6 +130,8 @@ set showcmd
 " 总是显示状态行
 set laststatus=2
 
+" 激活match it 插件
+runtime macros/matchit.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 文本格式和排版
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -146,11 +148,11 @@ set smartindent
 set cindent
 
 " 制表符为4
-set tabstop=2
+set tabstop=4
 
 " 统一缩进为4
-set softtabstop=2
-set shiftwidth=2
+set softtabstop=4
+set shiftwidth=4
 
 " 不要用空格代替制表符
 set expandtab
@@ -164,7 +166,7 @@ set smarttab
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CTags的设定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-:set tags=./tags,./../tags,./*/tags,~/programme/unixnetwork/lib/tags,/usr/include/tags
+:set tags=./.tags,.tags,./tags,./../tags,./*/tags,~/programme/unixnetwork/lib/tags,/usr/include/tags
 " 按照名称排序
 let Tlist_Sort_Type = "name"
 
@@ -400,4 +402,3 @@ map <F8> :Calendar<cr>
 "scheme
 let g:slimv_swank_cmd = '! xterm -e scheme --load /home/yy/.vim/slime/contrib/swank-mit-scheme.scm &'
 let g:lisp_rainbow=1
-
