@@ -402,3 +402,6 @@ map <F8> :Calendar<cr>
 "scheme
 let g:slimv_swank_cmd = '! xterm -e scheme --load /home/yy/.vim/slime/contrib/swank-mit-scheme.scm &'
 let g:lisp_rainbow=1
+
+"supertab for Java and Scala
+let g:SuperTabDefaultCompletionType = 'context'
