@@ -14,6 +14,51 @@ set fencs=utf-8,usc-bom,euc-jp,gb18030,gbk,gb2312,cp936
 " 不要使用vi的键盘模式，而是vim自己的
 set nocompatible
 
+" for Vundle
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" " alternatively, pass a path where Vundle should install plugins
+" "call vundle#begin('~/some/path/here')
+"
+" " let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+"
+" " The following are examples of different formats supported.
+" " Keep Plugin commands between vundle#begin/end.
+" " plugin on GitHub repo
+" Plugin 'tpope/vim-fugitive'
+" " plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" " Git plugin not hosted on GitHub
+" Plugin 'git://git.wincent.com/command-t.git'
+" " git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///home/gmarik/path/to/plugin'
+" " The sparkup vim script is in a subdirectory of this repo called vim.
+" " Pass the path to set the runtimepath properly.
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" " Install L9 and avoid a Naming conflict if you've already installed a
+" " different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+"
+Plugin 'derekwyatt/vim-scala'
+Plugin 'ervandew/supertab'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'pangloss/vim-javascript'
+Plugin 'wookiehangover/jshint.vim'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'bitfyre/vim-indent-html'
+Plugin 'othree/xml.vim'
+
+" " All of your Plugins must be added before the following line
+call vundle#end()            " required
+
 " history文件中需要记录的行数
 set history=100
 
@@ -218,8 +263,8 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 :inoremap } <c-r>=ClosePair('}')<CR>
 :inoremap [ []<ESC>i
 :inoremap ] <c-r>=ClosePair(']')<CR>
-:inoremap < <><ESC>i
-:inoremap > <c-r>=ClosePair('>')<CR>
+":inoremap < <><ESC>i
+":inoremap > <c-r>=ClosePair('>')<CR>
 
 function ClosePair(char)
 if getline('.')[col('.') - 1] == a:char
@@ -229,7 +274,7 @@ return a:char
 endif
 endf
 " """"""""""""""""""""""""""auto complete () "" """"""""""""""""""""""""""""""""""""""""
-let g:neocomplcache_enable_at_startup=1  
+"let g:neocomplcache_enable_at_startup=1  
 
 
 
@@ -405,3 +450,25 @@ let g:lisp_rainbow=1
 
 "supertab for Java and Scala
 let g:SuperTabDefaultCompletionType = 'context'
+"use YouCompleteMe in eclim
+let g:EclimCompletionMethod = 'omnifunc'
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+"""""""""""""""""
+" Tern settings
+"""""""""""""""""
+let g:tern_show_argument_hints='on_hold'
+" and 
+let g:tern_map_keys=1
+

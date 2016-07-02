@@ -41,7 +41,7 @@ function! eclim#javascript#util#UpdateSrcFile(on_save) " {{{
     \ (!exists('g:EclimFileTypeValidate') || g:EclimFileTypeValidate))
 
   if validate && g:EclimJavascriptLintEnabled
-    call eclim#javascript#util#Jsl()
+    " call eclim#javascript#util#Jsl()
   endif
 endfunction " }}}
 
