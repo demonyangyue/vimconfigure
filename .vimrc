@@ -55,6 +55,8 @@ Plugin 'maksimr/vim-jsbeautify'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'bitfyre/vim-indent-html'
 Plugin 'othree/xml.vim'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'scrooloose/syntastic'
 
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -174,6 +176,7 @@ set novisualbell
 set showcmd
 " 总是显示状态行
 set laststatus=2
+set ruler
 
 " 激活match it 插件
 runtime macros/matchit.vim
@@ -193,11 +196,11 @@ set smartindent
 set cindent
 
 " 制表符为4
-set tabstop=4
+set tabstop=2
 
 " 统一缩进为4
-set softtabstop=4
-set shiftwidth=4
+set softtabstop=2
+set shiftwidth=2
 
 " 不要用空格代替制表符
 set expandtab
@@ -211,7 +214,7 @@ set smarttab
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CTags的设定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-:set tags=./.tags,.tags,./tags,./../tags,./*/tags,~/programme/unixnetwork/lib/tags,/usr/include/tags
+:set tags=tags,./.tags,.tags,./../tags,./*/tags,~/programme/unixnetwork/lib/tags,/usr/include/tags
 " 按照名称排序
 let Tlist_Sort_Type = "name"
 
@@ -449,9 +452,9 @@ let g:slimv_swank_cmd = '! xterm -e scheme --load /home/yy/.vim/slime/contrib/sw
 let g:lisp_rainbow=1
 
 "supertab for Java and Scala
-let g:SuperTabDefaultCompletionType = 'context'
+"let g:SuperTabDefaultCompletionType = 'context'
 "use YouCompleteMe in eclim
-let g:EclimCompletionMethod = 'omnifunc'
+"let g:EclimCompletionMethod = 'omnifunc'
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -472,3 +475,20 @@ let g:tern_show_argument_hints='on_hold'
 " and 
 let g:tern_map_keys=1
 
+
+" for ruby
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+
+" for syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_ruby_mri_exec = '~/.rvm/rubies/ruby-2.2.4/bin/ruby'
+let g:syntastic_yaml_checkers = ['yamllint']

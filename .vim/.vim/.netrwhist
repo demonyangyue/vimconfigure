@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/yy/programme/ruby/rails/crafting_rails_4/book_code/pdf_renderer/1_prawn/lib/pdf_renderer'
+let g:netrw_dirhist_2='/home/yy/programme/ruby/rails/crafting_rails_4/book_code/pdf_renderer/1_prawn/test/dummy/app/views/layouts'
+let g:netrw_dirhist_3='/home/yy/programme/ruby/rails/crafting_rails_4/live_assets/test/dummy/app/assets/stylesheets'
+let g:netrw_dirhist_4='/home/yy/.rvm/gems/ruby-2.0.0-p353/gems/activemodel-4.2.1/lib/active_model'
