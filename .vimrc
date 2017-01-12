@@ -49,7 +49,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'pangloss/vim-javascript'
-Plugin 'wookiehangover/jshint.vim'
+Plugin 'Shutnik/jshint2.vim'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'Chiel92/vim-autoformat'
@@ -57,6 +57,7 @@ Plugin 'bitfyre/vim-indent-html'
 Plugin 'othree/xml.vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'scrooloose/syntastic'
+Plugin 'yssl/QFEnter'
 
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -452,9 +453,10 @@ let g:slimv_swank_cmd = '! xterm -e scheme --load /home/yy/.vim/slime/contrib/sw
 let g:lisp_rainbow=1
 
 "supertab for Java and Scala
-"let g:SuperTabDefaultCompletionType = 'context'
+let g:SuperTabDefaultCompletionType = 'context'
 "use YouCompleteMe in eclim
-"let g:EclimCompletionMethod = 'omnifunc'
+let g:EclimCompletionMethod = 'omnifunc'
+let g:EclimLocateFileDefaultAction = 'vsplit'
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -488,7 +490,14 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_mri_exec = '~/.rvm/rubies/ruby-2.2.4/bin/ruby'
 let g:syntastic_yaml_checkers = ['yamllint']
+
+" set the leader key
+let mapleader = ','
+
+" for jshint
+let g:jshint2_min_height = 3
+let g:jshint2_max_height = 8
